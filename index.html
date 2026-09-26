@@ -1,0 +1,29 @@
+
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DK-AUTO — автомобили с пробегом</title>
+  <meta name="description" content="DK-AUTO: автомобили с пробегом, выкуп и trade-in. Фотографии, характеристики и прямой контакт с продавцом.">
+  
+  <link rel="stylesheet" href="./static_css_site.css">
+  <link rel="icon" href="./static_images_favicon.svg" type="image/svg+xml">
+  <script src="./static_js_data.js"></script><script src="./static_js_app.js" defer></script>
+</head>
+<body>
+  <header class="header"><div class="container header-inner">
+    <a class="logo" href="./" aria-label="DK-AUTO — главная"><span class="logo-mark"></span>DK-AUTO<span class="logo-dot">.</span></a>
+    <nav class="desktop-nav" aria-label="Основное меню"><a href="./#catalog">Автомобили</a><a href="./#services">Наши услуги</a><a href="./#contacts">Контакты</a></nav>
+    <a class="header-phone" href="tel:+79619245710"><span data-icon="phone"></span><span>+7 (961) 924-57-10</span></a>
+    <button class="icon-button menu-toggle" aria-label="Открыть меню" aria-expanded="false"><span data-icon="menu"></span></button>
+  </div><nav class="mobile-nav" hidden><a href="./#catalog">Автомобили</a><a href="./#services">Наши услуги</a><a href="./#contacts">Контакты</a></nav></header>
+  <div id="staff-bar"></div>
+  <main id="app" aria-live="polite">
+    <div class="loading-screen"><span class="spinner"></span>Подготавливаем витрину…</div>
+  </main>
+  
+  <script id="page-state" type="application/json">{"unavailable": false}</script>
+  <footer class="footer"><div class="container footer-top"><div><a class="logo" href="./"><span class="logo-mark"></span>DK-AUTO<span class="logo-dot">.</span></a><p>Хорошие автомобили.<br>Понятные условия. Личный подход.</p></div><div><a href="./#catalog">Автомобили <span data-icon="upRight"></span></a><a href="./#services">Выкуп и trade-in <span data-icon="upRight"></span></a></div><div><a class="footer-phone" href="tel:+79619245710">+7 (961) 924-57-10</a><span>Дмитрий · Ежедневно, 9:00–20:00</span></div></div><div class="container footer-bottom"><span>© 2026 DK-AUTO</span><span>Автомобили с пробегом — с новым началом</span><a href="./credits.html">Источники фотографий</a></div></footer>
+  <dialog id="lightbox" aria-label="Просмотр фотографий"><button class="lightbox-close icon-button" aria-label="Закрыть"><span data-icon="close"></span></button><button class="lightbox-prev icon-button" aria-label="Предыдущая фотография"><span data-icon="left"></span></button><img alt="Фотография автомобиля"><button class="lightbox-next icon-button" aria-label="Следующая фотография"><span data-icon="arrow"></span></button><span class="lightbox-counter"></span></dialog>
+  <div id="toast" role="status"></div>
+</body></html>
