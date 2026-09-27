@@ -153,7 +153,7 @@ function servicesMarkup() {
   return site.services
     .map(
       (s, i) =>
-        `<a class="service" href="#contacts"><span class="service-icon">${icon(symbol[i % 4])}</span><div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div>${icon("upRight")}</a>`,
+        `<a class="service" href="#contacts"><span class="service-icon">${icon(symbol[i % 4])}</span><div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div>${icon("arrow")}</a>`,
     )
     .join("");
 }
@@ -163,8 +163,12 @@ function home() {
   <section class="catalog-section" id="catalog"><div class="container"><div class="section-heading"><div><h2>Автомобили<span class="count" id="car-count"></span></h2></div><span class="section-note">Каждый автомобиль —<br>начало новой истории</span></div>
 <form id="filters" class="filter-panel"><label><span>Марка автомобиля</span><select name="brand" id="brand-filter"><option value="">Все марки</option></select></label><label><span>Тип кузова</span><select name="body"><option value="">Любой кузов</option><option>Седан</option><option>Лифтбек</option><option>Кроссовер</option><option>Хэтчбек</option></select></label><fieldset class="budget-filter"><legend>Бюджет, ₽</legend><div class="budget-fields"><label><span>От</span><input id="price-min" name="price_min" type="number" min="0" max="1000000000000" step="1" inputmode="numeric" placeholder="Любая" aria-label="Бюджет от"></label><label><span>До</span><input id="price-max" name="price_max" type="number" min="0" max="1000000000000" step="1" inputmode="numeric" placeholder="Любая" aria-label="Бюджет до"></label></div><div class="budget-slider"><span class="budget-track"></span><input id="budget-min-range" type="range" min="0" max="10000000" step="50000" value="0" aria-label="Минимальная цена"><input id="budget-max-range" type="range" min="0" max="10000000" step="50000" value="10000000" aria-label="Максимальная цена"></div></fieldset><button class="button" type="submit">${icon("search")} Найти автомобиль</button><button class="filter-reset" type="reset">Сбросить фильтры</button></form>
   <div class="catalog-meta"><span id="results-label">Загружаем автомобили…</span><span>Сначала новые поступления ${icon("arrow")}</span></div><div id="car-list" class="car-list"></div><div class="load-more-wrap"><button id="load-more" class="button secondary" hidden>Показать еще ${icon("plus")}</button></div><p class="demo-note">Демонстрационная витрина · цены и характеристики приведены для примера</p></div></section>
-  <section class="container buyout-banner"><div><h2>Ваш автомобиль может стать<br>первым шагом к новому.</h2><p>Обсудим выкуп или обмен. Просто свяжитесь с Дмитрием.</p><a class="button" href="tel:${esc(site.phone.replace(/[^+\d]/g, ""))}">Обсудить мой автомобиль ${icon("upRight")}</a></div><div class="banner-art">${icon("exchange")}<span>TRADE<br><em>IN.</em></span></div></section>
-  <section class="container contact-section" id="contacts"><div><h2>Хороший автомобиль.<br>Живой разговор.</h2><p>Расскажите, какой автомобиль ищете.<br>Поможем разобраться и договоримся о встрече.</p><div class="contact-actions">${contacts()}</div></div><div class="contact-card"><span class="contact-monogram">ДК</span><div><small>Ваш контакт в DK-AUTO</small><h3>${esc(site.contact_name)}</h3><a href="tel:${esc(site.phone.replace(/[^+\d]/g, ""))}">${esc(site.phone)}</a></div><div class="contact-info">${icon("clock")}<span>${esc(site.hours)}</span></div><div class="contact-info">${icon("pin")}<span>${esc(site.address || "Адрес площадки уточняйте по телефону")}</span></div></div></section>`;
+  <section class="container exchange-section" id="trade-in" aria-labelledby="exchange-title">
+    <div class="exchange-heading"><span class="section-kicker">ВЫКУП И TRADE-IN</span><span class="exchange-caption">Новые планы. Другой автомобиль.</span></div>
+    <div class="exchange-panel"><div class="exchange-copy"><h2 id="exchange-title">Ваш автомобиль —<br>начало <span>нового пути.</span></h2><p>Выберите следующий автомобиль, а свой предложите в обмен. Обсудим оценку, доплату и удобный для вас вариант сделки.</p><a class="button" href="#contacts">Обсудить обмен ${icon("arrow")}</a><a class="exchange-buyout" href="tel:${esc(site.phone.replace(/[^+\d]/g, ""))}">Хотите просто продать? Обсудим выкуп ${icon("arrow")}</a></div><div class="exchange-visual"><img src="/static_images_trade-in-scene.webp" alt="Серебристый седан и зеленый кроссовер — иллюстрация обмена автомобиля" loading="lazy" width="1536" height="1024"><span class="exchange-photo-label">Ваш автомобиль <span>${icon("arrow")}</span> Следующий автомобиль</span></div></div>
+    <ol class="exchange-steps"><li><span class="exchange-step-number">01</span><div><h3>Расскажите об автомобиле</h3><p>Марка, год, пробег и состояние — начнем с главного.</p></div></li><li><span class="exchange-step-number">02</span><div><h3>Обсудим оценку</h3><p>Договоримся об осмотре и обсудим условия обмена.</p></div></li><li><span class="exchange-step-number">03</span><div><h3>Выберите следующий</h3><p>Посмотрите автомобили в наличии и подходящий вариант.</p></div></li></ol>
+  </section>
+  <section class="conversation-section" id="contacts" aria-labelledby="conversation-title"><div class="container conversation-grid"><div class="conversation-copy"><span class="section-kicker">НА СВЯЗИ · DK-AUTO</span><h2 id="conversation-title">Давайте начнем<br>с <span>разговора.</span></h2><p>Покупка, обмен или продажа — расскажите о ваших планах. Поможем с выбором и договоримся о встрече.</p><a class="conversation-phone" href="tel:${esc(site.phone.replace(/[^+\d]/g, ""))}">${esc(site.phone)} ${icon("arrow")}</a></div><div class="conversation-card"><div class="conversation-person"><span class="conversation-avatar">${icon("car")}</span><div><small>Ваш контакт в DK-AUTO</small><h3>${esc(site.contact_name)}</h3></div></div><div class="conversation-details"><div>${icon("clock")}<div><small>Время для звонка</small><span>${esc(site.hours)}</span></div></div><div>${icon("pin")}<div><small>Встреча и осмотр</small><span>${esc(site.address || "Позвоните — подскажем, как добраться")}</span></div></div></div><div class="conversation-actions">${contacts()}</div><p class="conversation-note">Личный контакт. Ответы на ваши вопросы.</p></div></div></section>`;
   if (site.hero_title !== "Ваш следующий автомобиль. Уже здесь.")
     app.querySelector("h1").textContent = site.hero_title;
   document.querySelector("#filters").onsubmit = (e) => {
@@ -299,6 +303,7 @@ async function detail(id) {
     const car = initial
       ? JSON.parse(initial.textContent)
       : await api(`cars/${id}/`);
+    document.title = `${car.title} · ${site.name} — автомобили с пробегом`;
     gallery = car.photos;
     galleryIndex = Math.max(
       0,
@@ -430,7 +435,8 @@ function characteristicField(d, v) {
     input = `<select data-value="${d.id}"><option value="">Не выбрано</option>${options.map((o) => `<option value="${esc(o.value)}" ${String(value) === o.value ? "selected" : ""}>${esc(o.text)}</option>`).join("")}</select>`;
   } else
     input = `<input data-value="${d.id}" type="${d.type === "number" ? "number" : "text"}" ${d.type === "number" ? 'min="0" step="any"' : ""} value="${esc(value)}" placeholder="${esc(d.unit || d.name)}">`;
-  return `<div class="characteristic-field" data-definition="${d.id}"><label>${esc(d.name)}${d.required ? '<span class="required">*</span>' : ""}${input}</label><label class="visibility-toggle"><input type="checkbox" data-public="${d.id}" ${v?.public === false ? "" : "checked"}> Показывать покупателю</label>${!d.required ? `<button class="remove-characteristic" data-remove="${d.id}" aria-label="Убрать ${esc(d.name)}">${icon("close")}</button>` : ""}</div>`;
+  const visible = v ? v.public === true : d.required;
+  return `<div class="characteristic-field" data-definition="${d.id}"><label>${esc(d.name)}${d.required ? '<span class="required">*</span>' : ""}${input}</label><label class="visibility-toggle"><input type="checkbox" data-public="${d.id}" ${visible ? "checked" : ""}> Показывать покупателю</label>${!d.required ? `<button class="remove-characteristic" data-remove="${d.id}" aria-label="Убрать ${esc(d.name)}">${icon("close")}</button>` : ""}</div>`;
 }
 async function editPage(id) {
   try {
@@ -481,9 +487,10 @@ async function editPage(id) {
     const archive = document.querySelector("#archive-car");
     if (archive) archive.onclick = () => stateAction("archive");
     document.querySelector("#editor-pdf").onclick = async (e) => {
+      const button = e.currentTarget;
       try {
         await flushSave();
-        await generatePdf(id, e.currentTarget);
+        await generatePdf(id, button);
       } catch (err) {
         toast(err.message, true);
       }
@@ -928,7 +935,9 @@ api=async function(path,options={}) {
 };
 async function preparePhoto(file) {
   if (!['image/jpeg','image/png','image/webp'].includes(file.type) || file.size>15*1024*1024) throw new Error('Выберите JPEG, PNG или WebP до 15 МБ');
-  const bitmap=await createImageBitmap(file);
+  let bitmap;
+  try { bitmap=await createImageBitmap(file); }
+  catch { throw new Error('Файл поврежден или не является изображением. Выберите JPEG, PNG или WebP.'); }
   try {
     if(bitmap.width*bitmap.height>50000000)throw new Error('Слишком большое разрешение фотографии');
     const scale=Math.min(1,1600/Math.max(bitmap.width,bitmap.height));

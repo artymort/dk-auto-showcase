@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap");
+@import url("./lower-sections.css");
 :root {
   --green: #088b4c;
   --green-dark: #076a3c;
@@ -1634,7 +1635,7 @@ em {
   inset: 0;
   max-width: 100vw;
   max-height: 100dvh;
-  width: 100vw;
+  width: 100%;
   height: 100dvh;
   background: rgba(10, 18, 13, 0.96);
   border: 0;
@@ -1676,6 +1677,15 @@ em {
   position: absolute;
   right: 15px;
   font-size: 28px;
+}
+#lightbox .lightbox-next,
+#lightbox .lightbox-prev {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff18;
+  border: 1px solid #ffffff38;
+  flex-shrink: 0;
 }
 .lightbox-counter {
   position: absolute;
@@ -2663,12 +2673,12 @@ em {
     max-height: calc(100dvh - 120px);
   }
   .lightbox-next {
-    right: 0;
-    width: 33px;
+    right: max(12px, env(safe-area-inset-right));
+    width: 44px;
   }
   .lightbox-prev {
-    left: 0;
-    width: 33px;
+    left: max(12px, env(safe-area-inset-left));
+    width: 44px;
   }
   #toast {
     bottom: 18px;
@@ -3211,4 +3221,20 @@ select[multiple] {
     margin-top: 0;
     width: 100%;
   }
+}
+
+/* One button scale across the public pages, matching the trade-in action. */
+:is(.hero--scene .hero-actions, .filter-panel, .load-more-wrap, .exchange-copy, .conversation-actions, .detail-contact, .mobile-contact-bar, .empty-state) .button {
+  height: auto;
+  min-height: 50px;
+  padding: 14px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  border-radius: 8px;
+  gap: 14px;
+}
+:is(.hero--scene .hero-actions, .filter-panel, .load-more-wrap, .exchange-copy, .conversation-actions, .detail-contact, .mobile-contact-bar, .empty-state) .button svg {
+  width: 20px;
+  height: 20px;
 }

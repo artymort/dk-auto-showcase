@@ -1,1 +1,1 @@
-{"version": 1, "include": ["/*"], "exclude": ["/static_*", "/credits.html", "/favicon.ico"]}
+{"version": 1, "include": ["/*"], "exclude": ["/static_*", "/lower-sections.css", "/credits.html", "/favicon.ico"]}
